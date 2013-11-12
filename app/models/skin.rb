@@ -11,8 +11,6 @@ class Skin < ActiveRecord::Base
   # Callbacks
   before_validation :set_uid
 
-
-
   private
 
     def set_uid
