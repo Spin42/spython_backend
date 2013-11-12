@@ -8,9 +8,9 @@ class CreateAttributes < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
 
-  add_index :attributes, :key
-  add_index :attributes, :enrichable_id
-  add_index :attributes, :enrichable_type
+    add_index :attributes, :key
+    add_index :attributes, :enrichable_id
+    add_index :attributes, :enrichable_type
+  end
 end
