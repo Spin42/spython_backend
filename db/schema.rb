@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20131112220338) do
 
   create_table "properties", force: true do |t|
     t.string   "key",             null: false
-    t.text     "value",           null: false
+    t.binary   "value",           null: false
     t.integer  "enrichable_id",   null: false
     t.string   "enrichable_type", null: false
     t.datetime "created_at"

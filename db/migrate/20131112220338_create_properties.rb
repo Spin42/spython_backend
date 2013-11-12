@@ -2,7 +2,7 @@ class CreateProperties < ActiveRecord::Migration
   def change
     create_table :properties do |t|
       t.string :key,              :null => false
-      t.text :value,              :null => false
+      t.binary :value,            :null => false
 
       t.integer :enrichable_id,   :null => false
       t.string  :enrichable_type, :null => false
