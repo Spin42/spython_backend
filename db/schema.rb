@@ -13,18 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20131112220338) do
 
-  create_table "attributes", force: true do |t|
-    t.text     "key",             null: false
-    t.binary   "value",           null: false
+  create_table "properties", force: true do |t|
+    t.string   "key",             null: false
+    t.text     "value",           null: false
     t.integer  "enrichable_id",   null: false
     t.string   "enrichable_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "attributes", ["enrichable_id"], name: "index_attributes_on_enrichable_id"
-  add_index "attributes", ["enrichable_type"], name: "index_attributes_on_enrichable_type"
-  add_index "attributes", ["key"], name: "index_attributes_on_key"
+  add_index "properties", ["enrichable_id"], name: "index_properties_on_enrichable_id"
+  add_index "properties", ["enrichable_type"], name: "index_properties_on_enrichable_type"
+  add_index "properties", ["key"], name: "index_properties_on_key"
 
   create_table "skins", force: true do |t|
     t.string   "uid",        null: false
