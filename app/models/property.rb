@@ -3,5 +3,5 @@ class Property < ActiveRecord::Base
   belongs_to :enrichable, :polymorphic => true
 
   # Validations
-  validates_presence_of :key, :value, :enrichable_id, :enrichable_type
+  validates_presence_of :key, :value
 end
