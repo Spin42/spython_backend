@@ -2,6 +2,8 @@ class Property < ActiveRecord::Base
 
   TYPES = %w(Text Number Image Location)
 
+  self.inheritance_column = :_type_disabled
+
   # Associations
   belongs_to :enrichable, :polymorphic => true
 
