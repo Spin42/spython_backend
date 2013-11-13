@@ -1,7 +1,7 @@
 SpythonBackend::Application.routes.draw do
   root "pages#home"
   namespace :api do
-    resources :skins, :only => [:create, :show] do
+    resources :skins, :only => [:index, :create, :show] do
       resources :properties, :only => [:create]
     end
   end
