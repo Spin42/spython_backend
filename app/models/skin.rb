@@ -11,6 +11,10 @@ class Skin < ActiveRecord::Base
   # Callbacks
   before_validation :set_uid
 
+  def token
+    self.uid[0,6].upcase
+  end
+
   private
 
     def set_uid

@@ -1,7 +1,9 @@
 class Api::SkinsController < ApplicationController
 
-  def create
+  layout false
 
+  def create
+    @skin = Skin.create!
   end
 
 end
