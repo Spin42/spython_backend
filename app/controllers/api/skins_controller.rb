@@ -11,6 +11,11 @@ class Api::SkinsController < ApplicationController
 
   def create
     @skin = Skin.create!
+    render 'show'
+  end
+
+  def show
+    @skin = Skin.find(params[:id])
   end
 
   protected
