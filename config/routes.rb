@@ -1,6 +1,9 @@
 SpythonBackend::Application.routes.draw do
-  resources :skins, :only => [:create] do
-    resources :properties, :only => [:create]
+  root "pages#home"
+  scope :api do
+    resources :skins, :only => [:create] do
+      resources :properties, :only => [:create]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
