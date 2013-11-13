@@ -1,2 +1,1 @@
-SpythonBackend::Application.config.secret_token = ENV['SECRET_TOKEN'] || "e2a22bc2d2f4f76a92f0c95fd7af5ad53b3cd65398365618bd68e63a0efc86b73c6aa9ca3ddb5f093d161617c20c908e434442a001e02e6cf8ee00b2d8e21753
-"
+SpythonBackend::Application.config.secret_token = ENV['SECRET_TOKEN'] || "dd55287df9f19973b5216ab3d8e309b87a210d1579e20d3ef5cc1eef07cc832b8a5799d5b41aed780fa88644d607e6043789e8963245b397264c50bee47c1b5f"
