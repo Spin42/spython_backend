@@ -11,6 +11,7 @@ class Api::SkinsController < ApplicationController
 
   def create
     @skin = Skin.create!
+    PropertyCreator.new(@skin).create_properties!(params[:properties]) if params[:properties].present?
     render 'show'
   end
 
