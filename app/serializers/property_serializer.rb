@@ -1,3 +1,3 @@
 class PropertySerializer < ActiveModel::Serializer
-  attributes :key, :value
+  attributes :key, :value, :type
 end

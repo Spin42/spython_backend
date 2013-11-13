@@ -2,18 +2,24 @@ class Api::SkinsController < ApplicationController
 
   layout false
 
-  respond_to :json
-
   def index
-    respond_with @skins = Skin.all
+    render :json => @skins = Skin.all
   end
 
   def create
-    respond_with @skin = Skin.create!
+    @skin = Skin.create!
+    PropertyCreator.new(@skin).create_properties!(skin_params[:properties]) if skin_params[:properties].present?
+    render :json => @skin
   end
 
   def show
-    respond_with @skin = Skin.find(params[:id])
+    render :json => @skin = Skin.find(params[:id])
   end
+
+  protected
+
+    def skin_params
+      params.require(:skin).permit({:properties => [:key, :value, :type]})
+    end
 
 end
