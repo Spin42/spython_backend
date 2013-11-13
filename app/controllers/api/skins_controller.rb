@@ -1,27 +1,19 @@
 class Api::SkinsController < ApplicationController
 
   layout false
+
   respond_to :json
 
-  before_filter :set_format
-
   def index
-    @skins = Skin.all
+    respond_with @skins = Skin.all
   end
 
   def create
-    @skin = Skin.create!
-    render 'show'
+    respond_with @skin = Skin.create!
   end
 
   def show
-    @skin = Skin.find(params[:id])
-  end
-
-  protected
-
-  def set_format
-    request.format = :json
+    respond_with @skin = Skin.find(params[:id])
   end
 
 end
