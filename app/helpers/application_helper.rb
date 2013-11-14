@@ -1,11 +1,11 @@
 module ApplicationHelper
   def property_logo_url(key)
     paths = {
-      "length"   => asset_path("i-length.png"),
-      "width"    => asset_path("i-location.png"),
-      "weight"   => asset_path("i-weight.png"),
-      "location" => asset_path("i-location.png"),
-      "picture"  => asset_path("i-pic.png")
+      "length"   => asset_url("i-length.png"),
+      "width"    => asset_url("i-length.png"),
+      "weight"   => asset_url("i-weight.png"),
+      "location" => asset_url("i-location.png"),
+      "picture"  => asset_url("i-pic.png")
       }
     paths[key]
   end
