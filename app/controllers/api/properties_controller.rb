@@ -24,7 +24,7 @@ class Api::PropertiesController < ApplicationController
   private
 
     def property_params
-      params.require(:property).permit(:key, :value, :type)
+      params.require(:property).permit(:key, :value, :type, :unit)
     end
 
 end

@@ -5,9 +5,9 @@ class Property < ActiveRecord::Base
   AVAILABLE_PROPERTIES = [
     {key: "region of origin",  type: "Text"},
     {key: "country of origin", type: "Text"},
-    {key: "length",            type: "Number"},
-    {key: "width",             type: "Number"},
-    {key: "weight",            type: "Number"},
+    {key: "length",            type: "Number", unit: "cm"},
+    {key: "width",             type: "Number", unit: "cm"},
+    {key: "weight",            type: "Number", unit: "g"},
     {key: "location",          type: "Location"},
     {key: "picture",           type: "Image"},
   ]
@@ -23,4 +23,15 @@ class Property < ActiveRecord::Base
 
   scope :last_known,             -> { group("key").order("created_at DESC") }
   scope :in_chronological_order, -> { order('created_at ASC') }
+
+  def as_json(options = {})
+    json = {
+      key: key,
+      value: value,
+      type: type,
+      timestamp: created_at.to_i
+    }
+    json[:unit] = unit if unit
+    json
+  end
 end

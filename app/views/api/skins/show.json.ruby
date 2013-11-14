@@ -5,7 +5,5 @@
     properties_dictionary: {href: api_properties_dictionary_path},
   },
   token: @skin.token,
-  properties: @skin.properties.in_chronological_order.map do |p|
-    {timestamp: p.created_at.to_i, key: p.key, value: p.value, type: p.type}
-  end
+  properties: @skin.properties.in_chronological_order.to_a
 }.to_json

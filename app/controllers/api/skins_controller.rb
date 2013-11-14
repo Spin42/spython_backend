@@ -24,7 +24,7 @@ class Api::SkinsController < ApplicationController
   protected
 
     def skin_params
-      params.require(:skin).permit({:properties => [:key, :value, :type]})
+      params.require(:skin).permit({:properties => [:key, :value, :type, :unit]})
     end
 
 end
