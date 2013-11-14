@@ -14,6 +14,6 @@ class Skin < ActiveRecord::Base
   private
 
     def set_token
-      self.uid ||= SecureRandom.uuid[0,6].upcase
+      self.token ||= SecureRandom.hex(3).upcase
     end
 end
