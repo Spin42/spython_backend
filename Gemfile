@@ -38,8 +38,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "active_model_serializers", "~> 0.8.1"
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
