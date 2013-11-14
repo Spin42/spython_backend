@@ -5,6 +5,7 @@ SpythonBackend::Application.routes.draw do
       resources :properties, :only => [:create]
     end
     resource :properties_dictionary, :only => [:show]
+    resources :tokens, :only => [:show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
