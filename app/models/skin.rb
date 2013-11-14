@@ -3,7 +3,7 @@ class Skin < ActiveRecord::Base
   # Associations
   has_many :properties, :as => :enrichable
   accepts_nested_attributes_for :properties,
-    :reject_if => proc { |attributes| attributes["key"].blank? || attributes["value"].blank? }
+    :reject_if => proc { |attributes| attributes["key"].blank? || attributes["value"].blank? || attributes["type"].blank?}
 
   # Validations
   validates_presence_of :uid

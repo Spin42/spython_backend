@@ -19,7 +19,6 @@ class Api::PropertiesController < ApplicationController
       end
     end
 
-
   end
 
   private

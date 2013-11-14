@@ -18,7 +18,7 @@ class Api::SkinsController < ApplicationController
   end
 
   def show
-    respond_with @skin = Skin.find(params[:id])
+    respond_with @skin = Skin.find(params[:id], :include => :properties)
   end
 
   protected
