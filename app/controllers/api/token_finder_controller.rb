@@ -8,6 +8,6 @@ class Api::TokenFinderController < ApplicationController
 
   protected
     def skin_params
-      params.require(:skin).permit({:token})
+      params.require(:skin).permit(:token)
     end
 end
