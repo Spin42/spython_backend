@@ -6,6 +6,6 @@
   },
   token: @skin.token,
   properties: @skin.properties.in_chronological_order.map do |p|
-    {timestamp: p.created_at, key: p.key, value: p.value, type: p.type}
+    {timestamp: p.created_at.to_i, key: p.key, value: p.value, type: p.type}
   end
 }.to_json
