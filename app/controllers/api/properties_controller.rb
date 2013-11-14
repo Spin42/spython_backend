@@ -1,7 +1,5 @@
 class Api::PropertiesController < ApplicationController
-
   layout false
-
   respond_to :json
 
   def create
@@ -18,13 +16,10 @@ class Api::PropertiesController < ApplicationController
         end
       end
     end
-
   end
 
   private
-
     def property_params
       params.require(:property).permit(:key, :value, :type, :unit)
     end
-
 end

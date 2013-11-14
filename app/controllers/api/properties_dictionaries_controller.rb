@@ -5,7 +5,6 @@ class Api::PropertiesDictionariesController < ApplicationController
   respond_to :json
 
   def show
-    render :json => {properties: Property::AVAILABLE_PROPERTIES}
+    @available_properties = Property::AVAILABLE_PROPERTIES
   end
-
 end

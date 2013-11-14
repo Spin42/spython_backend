@@ -3,11 +3,11 @@ class Property < ActiveRecord::Base
   TYPES = %w(Text Number Image Location)
 
   AVAILABLE_PROPERTIES = [
-    {key: "length",            type: "Number", unit: "cm"},
-    {key: "width",             type: "Number", unit: "cm"},
-    {key: "weight",            type: "Number", unit: "g"},
-    {key: "location",          type: "Location"},
-    {key: "picture",           type: "Image"},
+    {key: "length",   type: "Number", unit: "cm"},
+    {key: "width",    type: "Number", unit: "cm"},
+    {key: "weight",   type: "Number", unit: "g" },
+    {key: "location", type: "Location"          },
+    {key: "picture",  type: "Image"             }
   ]
 
   self.inheritance_column = :_type_disabled
@@ -28,8 +28,9 @@ class Property < ActiveRecord::Base
       value: value,
       type: type,
       timestamp: created_at.to_i
+
     }
-    json[:unit] = unit if unit
+    json[:unit]     = unit if unit
     json
   end
 end
