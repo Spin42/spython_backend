@@ -5,7 +5,7 @@
     postPicture: {href: "#TODO"}
   },
   token: @skin.token,
-  properties: @skin.properties.map do |p|
-    {key: p.key, value: p.value, type: p.type}
+  properties: @skin.properties.in_chronological_order.map do |p|
+    {timestamp: p.created_at, key: p.key, value: p.value, type: p.type}
   end
 }.to_json

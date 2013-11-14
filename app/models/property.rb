@@ -21,5 +21,6 @@ class Property < ActiveRecord::Base
   validates_presence_of :key, :type, :value
   validates_inclusion_of :type, in: TYPES
 
-  scope :last_known, ->{ group("key").order("created_at DESC") }
+  scope :last_known,             -> { group("key").order("created_at DESC") }
+  scope :in_chronological_order, -> { order('created_at ASC') }
 end
