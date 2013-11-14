@@ -3,8 +3,6 @@ class Property < ActiveRecord::Base
   TYPES = %w(Text Number Image Location)
 
   AVAILABLE_PROPERTIES = [
-    {key: "region of origin",  type: "Text"},
-    {key: "country of origin", type: "Text"},
     {key: "length",            type: "Number", unit: "cm"},
     {key: "width",             type: "Number", unit: "cm"},
     {key: "weight",            type: "Number", unit: "g"},
