@@ -1,12 +1,16 @@
 SpythonBackend::Application.routes.draw do
-  root "pages#home"
+  root "pages#index"
+
   namespace :api do
     resources :skins, :only => [:index, :create, :show] do
       resources :properties, :only => [:create]
     end
     resource :properties_dictionary, :only => [:show]
     resources :tokens, :only => [:show]
+    resources :statistics, :only => [:index]
   end
+
+  get "/partials/:id" => "partials#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

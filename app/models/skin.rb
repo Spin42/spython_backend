@@ -11,6 +11,9 @@ class Skin < ActiveRecord::Base
   # Callbacks
   before_validation :set_token
 
+  # Scopes
+  scope :recently_changed, ->(count) { order("updated_at DESC").limit(count) }
+
   private
 
     def set_token
