@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112220338) do
+ActiveRecord::Schema.define(version: 20131114192044) do
 
   create_table "properties", force: true do |t|
     t.string   "key",                             null: false
@@ -29,11 +29,9 @@ ActiveRecord::Schema.define(version: 20131112220338) do
   add_index "properties", ["type"], name: "index_properties_on_type"
 
   create_table "skins", force: true do |t|
-    t.string   "uid",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
-
-  add_index "skins", ["uid"], name: "index_skins_on_uid"
 
 end

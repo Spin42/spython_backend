@@ -6,18 +6,14 @@ class Skin < ActiveRecord::Base
     :reject_if => proc { |attributes| attributes["key"].blank? || attributes["value"].blank? || attributes["type"].blank?}
 
   # Validations
-  validates_presence_of :uid
+  validates_presence_of :token
 
   # Callbacks
-  before_validation :set_uid
-
-  def token
-    self.uid[0,6].upcase
-  end
+  before_validation :set_token
 
   private
 
-    def set_uid
-      self.uid ||= SecureRandom.uuid
+    def set_token
+      self.uid ||= SecureRandom.uuid[0,6].upcase
     end
 end
