@@ -3,13 +3,13 @@ class Property < ActiveRecord::Base
   TYPES = %w(Text Number Image Location)
 
   AVAILABLE_PROPERTIES = [
-    {key: "region of origin", type: "Text"},
+    {key: "region of origin",  type: "Text"},
     {key: "country of origin", type: "Text"},
-    {key: "length", type: "Number"},
-    {key: "width", type: "Number"},
-    {key: "weight", type: "Number"},
-    {key: "location", type: "Location"},
-    {key: "picture", type: "Image"},
+    {key: "length",            type: "Number"},
+    {key: "width",             type: "Number"},
+    {key: "weight",            type: "Number"},
+    {key: "location",          type: "Location"},
+    {key: "picture",           type: "Image"},
   ]
 
   self.inheritance_column = :_type_disabled
