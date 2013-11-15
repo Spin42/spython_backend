@@ -2,7 +2,7 @@
   Dashboard
 
 .row
-  .col-md-3
+  .col-md-4
     .well
       .text-center
         .number
@@ -10,14 +10,38 @@
         Skins
 
     .well
+      .page-header
+        Last recorded
       %table.table-condensed
         %tr(ng-repeat="skin in statistics.skins")
+          %td
+            %span.glyphicon.glyphicon-time
+            {{skin.updated_at | date: "yyyy-MM-dd"}}
           %td
             %span.glyphicon.glyphicon-link
             {{skin.token}}
           %td
-            %span.glyphicon.glyphicon-time
-            {{skin.updated_at | date}}
+            {{skin.last_property.key}}
 
-  .col-md-9
+    .well
+      .page-header
+        Suspicious activities
+      %table.table-condensed
+        %tr
+          %td
+            ABCDE
+          %td
+            has been registered too far from collecting area
+        %tr
+          %td
+            ERXDF
+          %td
+            checkin interval too short
+        %tr
+          %td
+            PWORD
+          %td
+            suspicious size for cattled pythons
+
+  .col-md-8
     #map-canvas

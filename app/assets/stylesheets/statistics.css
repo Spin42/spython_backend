@@ -9,3 +9,12 @@
 #map-canvas {
   height: 600px;
 }
+
+.page-header {
+  padding-bottom: 3px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #A0A0A0;
+  font-size: 16px;
+  font-weight: 1;
+  font-family: "Verdana";
+}
