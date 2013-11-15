@@ -14,7 +14,7 @@
         longitude = 4
         zoom: 13
         center: new google.maps.LatLng(latitude, longitude)
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.TERRAIN
 
       _initialize: ->
         mapOptions = @_generateMapOptions()
