@@ -1,4 +1,4 @@
-Startup Heroes for a Cause Back end
+Startup Heroes for a Cause Backend
 ==========
 
 # Context
