@@ -14,3 +14,7 @@
  *= require statistics
  *= require_tree .
  */
+
+.navbar-brand img {
+  height: 15px;
+}
