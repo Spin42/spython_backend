@@ -38,10 +38,11 @@ class Property < ActiveRecord::Base
 
   def self.last_known_for(enrichable_id)
     query = "
-      SELECT DISTINCT ON (p.key) p.*
+      SELECT p.*
       FROM properties p
       WHERE p.enrichable_id = ?
-      ORDER BY p.key, p.updated_at DESC
+      GROUP BY p.key, p.id
+      ORDER BY p.updated_at DESC
     "
 
     self.find_by_sql [query, enrichable_id]
