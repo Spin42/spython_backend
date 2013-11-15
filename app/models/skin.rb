@@ -13,8 +13,15 @@ class Skin < ActiveRecord::Base
 
   # Scopes
   scope :recently_changed, -> (count) { order("updated_at DESC").limit(count) }
-  scope :with_location, -> { joins("LEFT JOIN properties ON (properties.enrichable_id = skins.id)")
-                              .where("properties.key = ?", "location").group("skins.id") }
+
+  def self.with_location
+    query = "
+      SELECT DISTINCT ON (s.id) s.* FROM skins s LEFT JOIN properties p ON (p.enrichable_id = s.id)
+      WHERE p.key = ?
+    "
+
+    self.find_by_sql [query, "location"]
+  end
 
   private
 

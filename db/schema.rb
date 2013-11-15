@@ -13,21 +13,24 @@
 
 ActiveRecord::Schema.define(version: 20131114200635) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "properties", force: true do |t|
-    t.string   "key",                             null: false
-    t.string   "type",                            null: false
-    t.text     "value",           limit: 8388608, null: false
-    t.integer  "enrichable_id",                   null: false
-    t.string   "enrichable_type",                 null: false
+    t.string   "key",             null: false
+    t.string   "type",            null: false
+    t.text     "value",           null: false
+    t.integer  "enrichable_id",   null: false
+    t.string   "enrichable_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "unit"
   end
 
-  add_index "properties", ["enrichable_id"], name: "index_properties_on_enrichable_id"
-  add_index "properties", ["enrichable_type"], name: "index_properties_on_enrichable_type"
-  add_index "properties", ["key"], name: "index_properties_on_key"
-  add_index "properties", ["type"], name: "index_properties_on_type"
+  add_index "properties", ["enrichable_id"], name: "index_properties_on_enrichable_id", using: :btree
+  add_index "properties", ["enrichable_type"], name: "index_properties_on_enrichable_type", using: :btree
+  add_index "properties", ["key"], name: "index_properties_on_key", using: :btree
+  add_index "properties", ["type"], name: "index_properties_on_type", using: :btree
 
   create_table "skins", force: true do |t|
     t.datetime "created_at"

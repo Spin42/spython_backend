@@ -21,9 +21,31 @@ class Property < ActiveRecord::Base
   validates_inclusion_of :type, in: TYPES
   validates_inclusion_of :unit, in: UNITS, :allow_nil => true
 
-  scope :last_known,             -> { group("key").in_chronological_order }
   scope :in_chronological_order, -> { order('created_at ASC') }
   scope :with_key,               -> (key) { where(:key => key) }
+
+  def self.last_known_for_enrichable_and_property(enrichable_id, property_key)
+    query = "
+      SELECT DISTINCT ON (p.key) p.*
+      FROM properties p
+      WHERE p.enrichable_id = ?
+      AND p.key = ?
+      ORDER BY p.key, p.updated_at DESC
+    "
+
+    self.find_by_sql [query, enrichable_id, property_key]
+  end
+
+  def self.last_known_for(enrichable_id)
+    query = "
+      SELECT DISTINCT ON (p.key) p.*
+      FROM properties p
+      WHERE p.enrichable_id = ?
+      ORDER BY p.key, p.updated_at DESC
+    "
+
+    self.find_by_sql [query, enrichable_id]
+  end
 
   def as_json(options = {})
     json = {
