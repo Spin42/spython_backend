@@ -1,0 +1,11 @@
+.number {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 29px;
+  line-height: 60px;
+  text-shadow: 1px 0 0 #fff;
+  color: #2aacaa;
+}
+
+#map-canvas {
+  height: 600px;
+}

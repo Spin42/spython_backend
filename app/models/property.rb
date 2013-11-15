@@ -1,6 +1,7 @@
 class Property < ActiveRecord::Base
 
   TYPES = %w(Text Number Image Location)
+  UNITS = %w(cm g)
 
   AVAILABLE_PROPERTIES = [
     {key: "length",   type: "Number", unit: "cm"},
@@ -18,9 +19,11 @@ class Property < ActiveRecord::Base
   # Validations
   validates_presence_of :key, :type, :value
   validates_inclusion_of :type, in: TYPES
+  validates_inclusion_of :unit, in: UNITS, :allow_nil => true
 
-  scope :last_known,             -> { group("key").order("created_at DESC") }
+  scope :last_known,             -> { group("key").in_chronological_order }
   scope :in_chronological_order, -> { order('created_at ASC') }
+  scope :with_key,               -> (key) { where(:key => key) }
 
   def as_json(options = {})
     json = {

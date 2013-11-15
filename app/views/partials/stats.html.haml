@@ -1,4 +1,23 @@
 %h1
   Dashboard
 
-{{statistics.skin_count}}
+.row
+  .col-md-3
+    .well
+      .text-center
+        .number
+          {{statistics.skin_count}}
+        Skin count
+
+    .well
+      %table.table-condensed
+        %tr(ng-repeat="skin in statistics.skins")
+          %td
+            %span.glyphicon.glyphicon-link
+            {{skin.token}}
+          %td
+            %span.glyphicon.glyphicon-time
+            {{skin.updated_at | date}}
+
+  .col-md-9
+    #map-canvas
